@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous">
+    <title>W08: Instructions</title>
+  </head>
+  <body class="container">
+    <h1>Week 08: Instructions</h1>
+
+    <p>
+      During week 08 the exercises build on each other and completing later exercises requires that
+      all the earlier ones have already been successfully completed.
+    </p>
+
+    <p>
+      Together this week's exercises begin the work on the course assignment and the exercises
+      during the following weeks will build on top of the work done on previous weeks unless
+      otherwise stated.
+    </p>
+
+    <p>
+      The course assignment project is a web store and it consists of a frontend and a server
+      backend. The backend is implemented with Node.js and the frontend is implemented with HTML,
+      CSS and JavaScript.
+    </p>
+
+    <p>
+      The tasks for each of the exercises are marked with several <strong>TODO comments</strong>
+      inside various code files. Each comment includes the number of the exercise which that TODO
+      belongs to.
+    </p>
+
+    <p>
+      Mocha tests are provided for all the exercises under the <em>test/</em> directory. The grader
+      will use same tests to determine if the exercise is completed successfully.
+      <strong>Always <span class="text-uppercase">run tests and fix your code</span> if any of the tests
+      fail <span class="text-uppercase">before submitting your solution</span>.</strong>
+    </p>
+
+    <p>
+      <strong>Complete the exercises in correct order and submit your solution before continuing to the
+      next exercise!</strong>
+    </p>
+
+    <h2>Exercises</h2>
+
+    <div class="alert alert-warning" role="alert">
+      <strong>Before you begin</strong> run <kbd>npm install</kbd>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      <p>You can start the backend server by running <kbd>npm run nodemon</kbd></p>
+      <p>
+        Nodemon will monitor your changes and will automatically re-start the server whenever it
+        detects a change in the code.
+      </p>
+    </div>
+
+    <p>
+      Below you can see a summary of all the tasks that need to be completed in each of the
+      exercises. The numbering suggests a rough order in which to implement each task because some
+      tasks depend on and use functions from other tasks.
+    </p>
+
+    <div class="alert alert-danger" role="alert">
+      <strong>Do not edit files that don't include TODOs!</strong>
+    </div>
+
+    <h3>8.3 User Registration</h3>
+
+    <div class="alert alert-info" role="alert">
+      Tests for this exercise can be run with the following command: <kbd>npm run test-8.3</kbd>
+    </div>
+
+    <ol>
+      <li>
+        <span class="text-monospace">utils/users.js</span>
+        <ul>
+          <li>
+            <code>emailInUse()</code>: Check if there already exists a user with a given email
+          </li>
+          <li>
+            <code>getUser()</code>: Get user whose email and password match the provided values
+          </li>
+          <li><code>getUserById()</code>: Find user by user id</li>
+          <li><code>deleteUserById()</code>: Delete user with a given id</li>
+          <li><code>getAllUsers()</code>: Retrieve all users</li>
+          <li><code>saveNewUser()</code>: Save new user</li>
+          <li><code>updateUserRole()</code>: Update user's role</li>
+          <li><code>validateUser()</code>: Validate user before saving</li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">utils/requestUtils.js</span>
+        <ul>
+          <li>
+            <code>acceptsJson()</code>: Check if the client accepts JSON as a response based on
+            "Accept" request header
+          </li>
+          <li><code>isJson()</code>: Check whether request "Content-Type" is JSON or not</li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">routes.js</span>
+        <ul>
+          <li>Return all users as JSON</li>
+          <li>Implement registration</li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">public/js/utils.js</span>
+        <ul>
+          <li>Implement <code>getJSON()</code></li>
+          <li>Implement <code>postOrPutJSON()</code></li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">public/js/adminUsers.js</span>
+        <ul>
+          <li>
+            List all users (use &lt;template id="user-template"&gt; in
+            <span class="text-monospace">users.html</span>)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">public/js/register.js</span>
+        <ul>
+          <li>Implement user registration (handle form submitting)</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>8.4 User Authentication</h3>
+
+    <div class="alert alert-info" role="alert">
+      Tests for this exercise can be run with the following command: <kbd>npm run test-8.4</kbd>
+    </div>
+
+    <ol>
+      <li>
+        <span class="text-monospace">utils/requestUtils.js</span>
+        <ul>
+          <li>
+            <code>getCredentials()</code>: Parse user credentials from the "Authorization" request
+            header
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">utils/responseUtils.js</span>
+        <ul>
+          <li>
+            <code>basicAuthChallenge()</code>: Send proper headers for basic authentication
+            challenge
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">auth/auth.js</span>
+        <ul>
+          <li>
+            <code>getCurrentUser()</code>: Get current user based on the "Authorization" request
+            header
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">routes.js</span>
+        <ul>
+          <li>Add authentication to user listing (only allowed to users with role "admin")</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>8.5 Modifying and Deleting Users</h3>
+
+    <div class="alert alert-info" role="alert">
+      Tests for this exercise can be run with the following command: <kbd>npm run test-8.5</kbd>
+    </div>
+
+    <ol>
+      <li>
+        <span class="text-monospace">routes.js</span>
+        <ul>
+          <li>Implement view, update and delete a single user by ID (GET, PUT, DELETE)</li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">public/js/utils.js</span>
+        <ul>
+          <li>Implement deleteResource()</li>
+        </ul>
+      </li>
+      <li>
+        <span class="text-monospace">public/js/adminUsers.js</span>
+        <ul>
+          <li>Updating/modifying and deleting existing users</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>The structure of the project</h2>
+
+    <p>A few notes on the structure of the project:</p>
+
+    <ul>
+      <li>Documentation can be found in the <em>docs/</em> directory.</li>
+      <li>Tests are inside <em>test/</em> directory.</li>
+      <li>
+        User interface or frontend files are inside <em>public/</em> directory. The server will
+        serve these files directly but their URL does not include the <em>public/</em> directory in
+        front of them. For example <em>public/css/styles.css</em> is served from URL
+        <em>/css/styles.css</em> and <em>public/register.html</em> has a URL <em>/register.html</em>
+      </li>
+      <li><em>index.js</em> is the starting point of the backend server.</li>
+      <li>
+        <em>routes.js</em> is the actual router and is responsible for deciding what should be done
+        based on the request. JSON endpoints are served from URLs starting with <em>/api</em> For
+        example listing of all users can be retrieved from <em>/api/users</em> with a GET request
+        (implemented in exercise 8.3)
+      </li>
+      <li>
+        <em>users.js</em> User data for this week's exercises. DO NOT EDIT! In this week users are
+        loaded from this file but starting next week a database will be used.
+      </li>
+    </ul>
+
+    <p>You can see the directory structure of the project files below.</p>
+
+    <pre>
+      .
+      ├── auth/
+      │   └── auth.js
+      ├── docs/
+      │   └── week08_instructions.html     (THIS FILE)
+      ├── public/     (All static files that are accessible from the browser)
+      │   ├── css/
+      |   │   └── styles.css     (Feel free to experiment with the styles)
+      │   ├── js/
+      │   │   ├── adminUsers.js
+      │   │   ├── register.js
+      │   │   └── utils.js
+      │   ├── 404.html
+      │   ├── index.html
+      │   ├── register.html
+      │   └── users.html
+      ├── test/     (All tests divided into subdirectories for each exercise.  DO NOT EDIT!)
+      │   ├── 8.3/
+      │   │   ├── utils/
+      │   │   │   ├── requestUtils.test.js
+      │   │   │   ├── responseUtils.test.js
+      │   │   │   └── users.test.js
+      │   │   ├── routes.test.js
+      │   │   └── ui.test.js
+      │   ├── 8.4/
+      │   │   ├── utils/
+      │   │   │   ├── requestUtils.test.js
+      │   │   │   ├── responseUtils.test.js
+      │   │   │   └── users.test.js
+      │   │   ├── routes.test.js
+      │   │   └── ui.test.js
+      │   └── 8.5/
+      │       ├── utils/
+      │       │   ├── requestUtils.test.js
+      │       │   ├── responseUtils.test.js
+      │       │   └── users.test.js
+      │       ├── routes.test.js
+      │       └── ui.test.js
+      ├── utils/     (Helper functions for different purposes, intended to be used by other modules)
+      │   ├── render.js     (This module is responsible for serving files from "public/"  DO NOT EDIT!)
+      │   ├── requestUtils.js
+      │   ├── responseUtils.js
+      │   └── users.js
+      ├── .gitignore
+      ├── index.js     (Starting point of the backend application.)
+      ├── nodemon.json
+      ├── package-lock.json
+      ├── package.json
+      ├── routes.js     (The router that is responsible for deciding what should be done based on the request)
+      └── users.json    (User data for this week's exercises. DO NOT EDIT!)
+    </pre>
+  </body>
+</html>

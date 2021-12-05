@@ -1,0 +1,17 @@
+stages:
+  - test
+
+sonarqube-check:
+  image:
+    name: "tgcslearningtech/webdev1-sonar-scanner"
+    entrypoint: [""]
+  stage: test
+  script:
+    - /usr/local/bin/start-mongo.sh
+    - /usr/local/bin/node-link-packages.sh
+    - npm install
+    - npm run coverage
+    - sonar-scanner -Dsonar.projectKey=$CI_PROJECT_NAMESPACE-$CI_PROJECT_NAME -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.exclusions=test/**
+  only:
+    refs:
+      - master

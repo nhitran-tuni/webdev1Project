@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Products</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="index.html">Front Page</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="users.html">List Users</a></li>
+          <li><a href="addProduct.html">Add product</a></li>
+          <li><a href="products.html">List Products</a></li>
+          <li><a href="cart.html">Shopping Cart</a></li>
+          <li><a href="order.html">Orders</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Products</h1>
+      <div id="notifications-container"></div>
+      <div id="modify-product"></div>
+      <button id="sort-by-A-Z">Sort by A-Z</button>
+      <button id="sort-by-Z-A">Sort by Z-A</button>
+      <button id="sort-increase-price">Sort by increasing price</button>
+      <button id="sort-decrease-price">Sort by decreasing price</button>
+      <div id="products-container"></div>
+    </main>
+    <footer>
+      <p>Copyright &copy; 2020</p>
+    </footer>
+    <template id="product-template">
+      <div class="item-row">
+        <h3 class="product-name"></h3>
+        <p><img class="product-image" src="" alt=""/></p>
+        <p class="product-description"></p>
+        <p class="product-price"></p>
+        <button class="modify-button">Modify</button>
+        <button class="delete-button">Delete</button>
+        <button class="cart-button">Add to cart</button>
+      </div>
+    </template>
+    <template id="form-template">
+      <form id="edit-product-form" method="POST">
+        <h2 class="text-align-center">Modify product {Product Name}</h2>
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input
+            name="_id"
+            type="text"
+            class="form-control"
+            id="id-input"
+            value=""
+            disabled
+            required>
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            name="name"
+            type="text"
+            class="form-control"
+            id="name-input"
+            value=""
+            required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            name="description"
+            type="text"
+            class="form-control"
+            id="description-input"
+            value=""
+            required>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input
+            name="image"
+            type="url"
+            class="form-control"
+            id="image-input"
+            value=""
+            required>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            name="price"
+            type="number"
+            class="form-control"
+            id="price-input"
+            step="any"
+            value=""
+            required>
+        </div>
+        <div class="form-group">
+          <div class="second-column">
+            <button type="submit" id="update-button">Update</button>
+          </div>
+        </div>
+      </form>
+    </template>
+    <script src="js/utils.js"></script>
+    <script src="js/products.js"></script>
+  </body>
+</html>
